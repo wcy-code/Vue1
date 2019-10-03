@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .color-gray{color:gray}
+        .size-18{font-size:18px}
+        .style-italic{font-style:italic}
+    </style>
+</head>
+<script src="vue.js"></script>
+
+
+<body>
+
+<div id="demo4">
+    <p :class="classStr">《vue2.0,从入门到实战》，用心良苦，伴你成长</p>
+    <p :class="classAry">《vue2.0,从入门到实战》，用心良苦，伴你成长</p>
+    <p :class="classObj1">《vue2.0,从入门到实战》，用心良苦，伴你成长</p>
+    <p :class="classObj2">《vue2.0,从入门到实战》，用心良苦，伴你成长</p>
+</div>
+<script>
+    new Vue({
+        el:'#demo4',
+        data:function () {
+            return{
+                classStr:'color-gray size-18 style-italic',
+                classAry:['color-gray',{'size-18':false,'style-italic':true}],
+                classObj1:{'color-gray':true,"size-18":true,'style-italic':false},
+                classObj2:{'color-gray':false,'size-18':true,'style-italic':true}
+            }
+        }
+    })
+</script>
+</body>
+</html>

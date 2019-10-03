@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <style type="text/css">
+        .border-gray{border: 1px solid gray}
+    </style>
+</head>
+<body>
+<div id="main">
+<!--    <div v-if="count==1">aaa</div>
+    <div v-else>bbb</div>
+    <div v-show="flag">show</div>-->
+    <ul>
+        <li v-for="(item,index) in ary" :key="index" @click="doClick(index)" :class="{'border-gray':current==index}">
+            <img :src="item.url">
+            <p>{{item.price}}</p>
+            <p v-html="item.name"></p>
+        </li>
+    </ul>
+</div>
+<script>
+    new Vue({
+        el:'#main',
+        data:function() {
+            return{
+                count:1,
+                flag:true,
+                ary:[{name:'<span>白T</span>',price:25,url:'http://pic16.nipic.com/20111006/6239936_092702973000_2.jpg'},
+                     {name:'<span>灰T</span>',price:30,url:'http://pic13.nipic.com/20110409/7119492_114440620000_2.jpg'}],
+                current:0
+            }
+        },
+        methods:{
+            doClick:function(index){
+                this.current=index;
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="reset.css"/>
+    <style type="text/css">
+        #cartTable{margin:30px auto; border-collapse: collapse;}
+        td,th{padding:5px 10px;}
+        .txtCnt{width:30px; margin:0px 5px;}
+        button{padding:5px;}
+        .total{font-size:18px; color:darkred; font-weight:800;}
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="cart">
+    <table border="1" cellspacing="0" id="cartTable" >
+        <thead>
+        <tr>
+            <th>商品序号</th>
+            <th>商品编号</th>
+            <th>商品名称</th>
+            <th>商品数量</th>
+            <th>商品单价</th>
+            <th>移出</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>绑定序号</td>
+            <td>绑定商品编号</td>
+            <td>绑定商品名称</td>
+            <td>绑定商品数量以及实现增加和减少按钮功能</td>
+            <td>绑定价格</td>
+            <td>实现删除商品按钮功能</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr><!--购物车中有商品时显示-->
+            <td colspan="6">总价为：<span class="total">计算总价</span>元</td>
+        </tr>
+        <tr><!--购物车中无商品时显示-->
+            <td colspan="6">此购物车中无商品</td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+</body>
+</html>

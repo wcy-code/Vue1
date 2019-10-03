@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <script src="vue.js"></script>
+    <style type="text/css">
+        table{width:700px;text-align: center;vertical-align: middle;}
+        td{padding:15px;}
+        th{color:blueviolet;}
+        #txt{color: brown;font-size: large;font-weight: bold;display: inline-block;width: 60px;}
+        .biaoq{ text-align: left;padding-left: 15px;}
+    </style>
+</head>
+<body>
+<div id="main">
+    <table border="1" cellspacing="0" >
+        <tr><th><input type="checkbox"  v-model="output" id="t" @change="handleChange()">全选</th><th>商品序号</th><th>商品编号</th><th>商品名称</th><th>商品数量</th><th>商品单价</th><th>移出</th></tr>
+        <tr v-for="(item,index) in list" :key="index">
+            <td><input type="checkbox" :id="index" v-model="goods" :value="index+1">选择</td>
+            <td>{{index+1}}</td>
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td >
+                <button type="button" @click="cut(index)">-</button>
+                <span>{{item.count}}</span>
+            <button type="button" @click="add(index)">+</button> </td>
+            <td>{{item.price}}</td>
+            <td><button type="button" @click="bdel(index)">删除</button></td>
+        </tr>
+        <tr class="biaoq">
+            <td colspan="7" v-if="list.length>0" >总共<span id="txt">{{total}}</span>元</td>
+            <td colspan="7" v-else >此购物车无商品</td>
+        </tr>
+    </table>
+</div>
+<script>
+
+    new Vue({
+        el:'#main',
+        data:function () {
+            return{
+                tf:true,
+                output:false,
+                goods:[],
+                list:[{id:'0001',name:'iphoneX',count:1,price:6188},
+                    {id:'0002',name:'华为p30',count:2,price:5934},
+                    {id:'0003',name:'小米RedmiBook',count:1,price:4299},
+                    {id:'0004',name:'华为畅享9e',count:3,price:799}]
+            }
+        },
+        computed:{
+            total:function () {
+                var sum=0;
+                    this.list.forEach(function (item) {
+                        sum+=item.price*item.count
+
+                    })
+
+                return sum;
+
+            },
+            theCheck:function () {  //theCheck一个计算变量,来计算并存放，并返回值给这个变量
+                var h=0;
+                this.goods.forEach(function (item) {
+                    h+=parseInt(item);
+                });
+                return h;
+            }
+        },
+        watch:{
+          theCheck:function () {  //判断选项是否都全选了
+              if(this.theCheck==10) this.output=true;
+              else this.output=false;
+          }
+        },
+        methods:{
+            add:function (index) {  //增加数量
+               this.list[index].count++;
+            },
+            cut:function (index) {  //减少数量
+                if( this.list[index].count>1)
+                {
+                   this.list[index].count--;
+                }
+
+            },
+            bdel:function (index) {  //删除选中的一行
+                    this.list.splice(index,1);
+
+            },
+           handleChange:function () {   //判断全选是否选中
+               if(this.output) this.goods=[1,2,3,4];
+               else this.goods=[]
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

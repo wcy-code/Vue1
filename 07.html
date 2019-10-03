@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js"></script>
+<body>
+<div id="demo10">
+    <h3>单选框</h3>
+    <input id="ra" type="radio" value="杨玉环" v-model="radioValue">
+    <label for="ra">A.杨玉环</label>
+    <input id="rb" type="radio" value="赵飞燕" v-model="radioValue">
+    <label for="rb">B.赵飞燕</label>
+  <p>{{radioValue}}</p>
+    <h3>单个复选框</h3>
+    <input id="c" type="checkbox" value="漂亮" v-model="toggleValue1">
+    <label for="c">天生丽质</label>
+    <p>{{toggleValue1}}</p>
+    <input id="d" type="checkbox" value="瘦弱" v-model="toggleValue2">
+    <label for="d">体态轻盈</label>
+<p>{{toggleValue2.toString()}}</p>
+    <h3>多个复选框</h3>
+    <input id="ca" type="checkbox" value="漂亮" v-model="checkedValues">
+    <label for="ca">A.回眸一笑百媚生</label>
+    <input id="cb" type="checkbox" value="瘦弱" v-model="checkedValues">
+    <label for="cb">Ｂ.体轻能为掌上舞</label>
+    <input id="cc" type="checkbox" value="得宠" v-model="checkedValues">
+    <label for="cc">C.三千宠爱在一生</label>
+  <p>{{checkedValues.join(',')}}</p>
+</div>
+<script>
+    new Vue({
+        el:'#demo10',
+        data:function () {
+            return{
+                radioValue:'杨玉环',
+                toggleVaule1:'',
+                toggleValue2:[],
+                checkedValues:[]
+            }
+        }
+    })
+</script>
+</body>
+</html>

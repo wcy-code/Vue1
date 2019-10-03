@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js"></script>
+<body>
+<div id="demo1">
+    <p><label class="profile">变量：</label>{{msg}}</p>
+    <p><label class="profile">三目运算法则：</label>{{am?'上午好':'下午好'}}</p>
+    <p><label class="profile">表达式：</label>{{date.toDateString()}}</p>
+</div>
+<script>
+    new Vue({
+        el:'#demo1',
+        data:function () {
+            return{
+                msg:'web开发的同学们，你们好',
+                am:true,
+                date:new Date(),
+            }
+        }
+    })
+</script>
+</body>
+</html>

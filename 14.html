@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="demo8">
+    <div id="big" @click.stop="handleClick($event)">big
+       <div id="middle" @click.stop="handleClick($event)">middle
+          <div id="small" @click.stop="handleClick($event)">small</div>
+       </div>
+    </div>
+</div>
+<script>
+    new Vue({
+        el:'#demo8',
+        methods:{
+            handleClick:function (event){
+                   console.log(event.target.firstChild.textContent)
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>点击图片</title>
+    <script src="vue.js"></script>
+    <style type="text/css">
+        div{border-color:black}
+        #left{overflow:hidden}
+        #left ul{display:inline-block;width:400px;float:left}
+        #left img{float:left}
+        #left ul li{overflow: hidden;width:400px;height:40px;background-color: lightgrey;margin-bottom:15px;}
+        #left ul li img{float: left;}
+        #left ul li span{display:inline-block;float:left;width:350px;height:40px;padding-top:10px;text-align: center;}
+        .red{border: 2px solid red;}
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="right"></div>
+    <div id="left">
+        <img :src="bimg">
+        <ul >
+            <li style="background-color: white;margin-bottom: 10px">颜色选择</li>
+            <li v-for="(item,index) in list" :key="index" @click="doClick(index)" :class="{red:item.bf}"><img :src="item.imgUrl"/><span>{{item.desc}}</span></li>
+        </ul>
+    </div>
+</div>
+<script>
+    new Vue({
+        el:"#main",
+        data:function () {
+            return{
+               bimg:'img/green-big.jpg',
+                list:[{desc:'绿色【三档强劲风力-升级静音版】带底座',
+                    imgUrl:'img/green.jpg',
+                    imgBigUrl:'img/green-big.jpg',bf:true},
+                    {desc:'粉色【三档强劲风力-升级静音版】带底座',
+                        imgUrl:'img/pink.jpg',
+                        imgBigUrl:'img/pink-big.jpg',bf:false},
+                    {desc:'白色【三档强劲风力-升级静音版】带底座',
+                        imgUrl:'img/white.jpg',
+                        imgBigUrl:'img/white-big.jpg',bf:false},
+                    {desc:'黑色【三档强劲风力-升级静音版】带底座',
+                        imgUrl:'img/black.jpg',
+                        imgBigUrl:'img/black-big.jpg',bf:false}],
+            }
+
+        },
+        methods:{
+            doClick:function (index) {
+               for(var i=0;i<this.list.length;i++){
+                   this.list[i].bf=false;
+               }
+               this.list[index].bf=true;
+              this.bimg=this.list[index].imgBigUrl;
+            }
+        }
+    })
+</script>
+</body>
+</html>

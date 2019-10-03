@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="demo9">
+    <h3>单行文本框</h3>
+    <input type="text" v-model="singleText"/>
+    <p>{{singleText}}</p>
+    <h3>多行文本框</h3>
+    <textarea v-model="multiText"></textarea>
+    <pre>{{multiText}}</pre>
+</div>
+<script>
+    new Vue({
+        el:"#demo9",
+        data(){
+            return{
+                singleText:'',
+                multiText:'',
+            }
+        },
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="vue.js"></script>
+<body>
+<div id="demo5">
+    <p :style="styleStr">《vue2.0,从入门到实战》，用心良苦，伴你成长</p>
+    <p :style="styleObj">《vue2.0,从入门到实战》，用心良苦，伴你成长</p>
+</div>
+<script>
+    new Vue({
+        el:'#demo5',
+        data:function () {
+            return{
+                styleStr:'color:red;fontSize:18px;textDecoration:underline',
+                styleObj:{'color':'green','fontSize':'20px','fontWeight':600}
+            }
+        }
+    })
+</script>
+</body>
+</html>

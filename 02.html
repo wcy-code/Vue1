@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .align-center{text-align: center}
+    </style>
+</head>
+
+<script src="vue.js"></script>
+<body>
+<div id="demo2">
+    <div v-html="blog"></div>
+    <a :href="link=='浙江机电'?path1:path2">{{link}}</a>
+    <input :placeholder="inputmsg"/>
+</div>
+
+<script>
+    new Vue({
+        el:'#demo2',
+        data:function (){
+            return{
+                blog:'<h2 class="align-center">一对兄弟</h2><p>你看多可爱的一对好兄弟</p>',
+                link:'浙江机电',
+                path1:'http://www.zime.zj.cn',
+                path2:'http://it.zime.zj.cn',
+                inputmsg:'请输入您的卡号'
+            }
+
+        }
+    }
+    )
+ </script>
+</body>
+</html>

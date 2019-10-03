@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="demo12">
+    <ul>
+        <li v-for="(item,index) in list">
+            <span>序号：{{index+1}}</span>
+            <span>名字：{{item.name}}</span>
+            <span>年龄：{{item.age}}</span>
+            <span>城市：{{item.city}}</span>
+    </ul>
+</div>
+<script>
+    new Vue({
+        el:'#demo12',
+        data:function () {
+            return{
+                list:[{name:'Clark',age:'27',city:'Chicago'},{name:'Jackson',age:'21',city:'Sydney'},{name:'Mike',age:'19',city:'New York'}]
+            }
+        }
+    })
+</script>
+</body>
+</html>

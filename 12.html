@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="demo6">
+    <p :style="{'color':flag1?'red':''}">{{flag2?'这是一个事件绑定案例':msg}}</p>
+    <button @click="handleClick1()">点击弹出ａｌｅｒｔ对话框，信息来自ｄａｔａ中的ｍｓｇ</button>
+    <button @click="handleClick2()">点击后文本颜色变红，再点击恢复原来颜色</button>
+    <button @click="handleClick3()">点击后文内容变为ｄａｔａ中的ｍｓｇ，再点击恢复</button>
+</div>
+<script>
+    new Vue({
+        el:'#demo6',
+        data:function(){
+            return{
+                msg:'hello world',
+                flag1:true,
+                flag2:true,
+            }
+        },
+        methods:{
+            handleClick1:function () {
+                alert(this.msg);
+            },
+            handleClick2:function () {
+                this.flag1=!this.flag1
+            },
+            handleClick3:function () {
+                this.flag2 = !this.flag2;
+            }
+        }
+    })
+</script>
+</body>
+</html>

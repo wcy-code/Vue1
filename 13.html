@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+   <div id="demo7">
+       <form action="http://www.zime.zj.cn" @submit="handleSubmit">
+           <input type="text">
+           <a href="http://it.zime.zj.cn" @click.prevent="handleClick">
+               点击后弹出alert,输出信息技术系+点击次数，不跳转</a>
+           <button type="submit">提交，点击后用console，log输出浙江机电，之后跳转</button>
+       </form>
+   </div>
+<script>
+    new Vue({
+        el:'#demo7',
+        data:function(){
+            return{
+                count:0
+            }
+        },
+        methods:{
+            handleSubmit:function(){
+                console.log('浙江机电')
+            },
+            handleClick:function () {
+                this.count++;
+                alert('信息技术系'+this.count+'次');
+            },
+        }
+    })
+</script>
+</body>
+</html>
